@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwqgtkd6o22h"]
+
+[ext_resource type="Texture2D" uid="uid://dk1ofy1ye1b4n" path="res://images/player_base.png" id="1_7vrkn"]
+[ext_resource type="Script" uid="uid://62x3b7oyfvgo" path="res://main_menu.gd" id="1_fu7sn"]
+[ext_resource type="Texture2D" uid="uid://dnmkn8fp7wn3r" path="res://images/red_button.png" id="2_fu7sn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jix8l"]
+font_size = 32
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_color = Color(0, 0, 0, 0.6862745)
+
+[node name="Main_Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fu7sn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.3515629, 0.3515629, 0.35156286, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="CenterContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Kartoffel"
+label_settings = SubResource("LabelSettings_jix8l")
+
+[node name="Start" type="Button" parent="CenterContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Start"
+icon = ExtResource("1_7vrkn")
+
+[node name="how_to_play" type="Button" parent="CenterContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "How To Play"
+icon = ExtResource("2_fu7sn")

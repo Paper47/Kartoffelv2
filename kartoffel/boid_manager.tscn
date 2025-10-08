@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dmuhwseins215"]
+
+[ext_resource type="Script" uid="uid://cwql5rkba52iy" path="res://BoidManager.cs" id="1_lyjrf"]
+[ext_resource type="PackedScene" uid="uid://d3nl7svvbcv46" path="res://boid.tscn" id="2_qyqtk"]
+
+[node name="Boid_Manager" type="Node2D"]
+script = ExtResource("1_lyjrf")
+BoidScene = ExtResource("2_qyqtk")

@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://2w8nudql1l3u"]
+
+[ext_resource type="Script" uid="uid://bk7tff7yun1hb" path="res://death_cond.gd" id="1_wnpe4"]
+[ext_resource type="Texture2D" uid="uid://7kjvyvnymoto" path="res://images/green_button.png" id="2_jm7lm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_54j5w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jm7lm"]
+font_size = 32
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 12
+shadow_color = Color(0.12941177, 0.12941177, 0.12941177, 1)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_wnpe4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_54j5w")
+
+[node name="failurescreen" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="failurescreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 345.0
+offset_top = 94.0
+offset_right = -371.0
+offset_bottom = -370.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+color = Color(0.6188103, 0.5722407, 0.88102067, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="failurescreen/ColorRect"]
+layout_mode = 0
+offset_right = 436.0
+offset_bottom = 184.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="failurescreen/ColorRect/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="failurescreen/ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "You died"
+label_settings = SubResource("LabelSettings_jm7lm")
+
+[node name="Button" type="Button" parent="failurescreen/ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Reset"
+icon = ExtResource("2_jm7lm")
+
+[connection signal="pressed" from="failurescreen/ColorRect/CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

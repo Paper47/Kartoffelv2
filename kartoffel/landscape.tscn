@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://hcti4lgv7ygg"]
+
+[ext_resource type="Texture2D" uid="uid://c02dls2cfhuxv" path="res://images/landscape_base.png" id="1_8vpcf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j1j1h"]
+size = Vector2(37.555557, 5.5555563)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="landscape" type="StaticBody2D" parent="."]
+position = Vector2(95, 140)
+scale = Vector2(3, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="landscape"]
+position = Vector2(34.000004, -15.666668)
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_j1j1h")
+
+[node name="Sprite2D" type="Sprite2D" parent="landscape"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(34, -15.666668)
+texture = ExtResource("1_8vpcf")
+region_enabled = true
+region_rect = Rect2(-32.133026, -0.1634655, 112.51144, 16.416685)

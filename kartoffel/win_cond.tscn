@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://fuwj3obbfbf"]
+
+[ext_resource type="Script" uid="uid://t7q7c8mj4l5g" path="res://win_cond.gd" id="1_r80us"]
+[ext_resource type="Texture2D" uid="uid://7kjvyvnymoto" path="res://images/green_button.png" id="2_1wvtj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1wvtj"]
+size = Vector2(245, 199.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sh3ud"]
+font_size = 32
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 12
+shadow_color = Color(0.12941177, 0.12941177, 0.12941177, 1)
+
+[node name="win_cond" type="Area2D"]
+script = ExtResource("1_r80us")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1wvtj")
+
+[node name="victoryscreen" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="victoryscreen"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 345.0
+offset_top = 94.0
+offset_right = -371.0
+offset_bottom = -370.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+color = Color(0.6188103, 0.5722407, 0.88102067, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="victoryscreen/ColorRect"]
+layout_mode = 0
+offset_right = 436.0
+offset_bottom = 184.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="victoryscreen/ColorRect/CenterContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="victoryscreen/ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "You Win!"
+label_settings = SubResource("LabelSettings_sh3ud")
+
+[node name="Button" type="Button" parent="victoryscreen/ColorRect/CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "Reset"
+icon = ExtResource("2_1wvtj")
+
+[connection signal="pressed" from="victoryscreen/ColorRect/CenterContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
